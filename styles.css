@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 16px;
+  background-color: beige;
+  max-height: 100vh;
+}
+
+div.container {
+  max-width: 100%;
+  padding: 80px;
+}
+
+h1 {
+  padding-bottom: 20px;
+}
+
+div.desserts {
+  position: absolute;
+  /* right: auto; */
+  float: left;
+  max-width: 61%;
+}
+
+div.image {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 39px;
+  margin-bottom: 50px;
+}
+
+div.image div.img-btn {
+  max-width: 300px;
+}
+
+div.image img {
+  max-width: 245px;
+  max-height: 250px;
+  border-radius: 10px;
+}
+
+div.image button {
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  padding: 13px 25px;
+  border-radius: 50px;
+  border: 1px solid hsl(14, 25%, 72%);
+  background-color: hsl(20, 50%, 98%);
+  font-size: 16px;
+  transform: translateY(-30px);
+  cursor: pointer;
+}
+
+div.image button:hover {
+  color: hsl(14, 86%, 42%);
+  border: 1px solid hsl(14, 86%, 42%);
+}
+
+div.image button img {
+  max-width: 25px;
+  max-height: 18px;
+  margin-right: 10px;
+}
+
+span.name {
+  font-size: 15px;
+}
+
+p,
+span.price {
+  font-weight: 600;
+}
+
+p {
+  font-size: 18px;
+}
+
+span.price {
+  color: hsl(14, 86%, 42%);
+}
+
+aside {
+  float: right;
+  /* position: fixed;
+  left: 60%; */
+  max-width: 39%;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+aside h3 {
+  color: hsl(14, 86%, 42%);
+  padding: 0 0 25px;
+}
+
+aside div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+aside div img {
+  margin: 0 auto;
+  max-width: 150px;
+  max-height: 100px;
+}
+
+aside div p {
+  font-size: 14px;
+  color: hsl(12, 20%, 44%);
+}
