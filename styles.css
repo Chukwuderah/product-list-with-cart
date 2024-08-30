@@ -63,10 +63,23 @@ div.image button:hover {
   border: 1px solid hsl(14, 86%, 42%);
 }
 
+div.image button img,
+div.image button.quantity-controls img {
+  max-width: 30px;
+  max-height: 20px;
+}
+
 div.image button img {
-  max-width: 25px;
-  max-height: 18px;
   margin-right: 10px;
+}
+
+div.image button.quantity-controls {
+  width: 170px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hsl(14, 86%, 42%);
+  color: #fff;
 }
 
 span.name {
@@ -88,9 +101,8 @@ span.price {
 
 aside {
   float: right;
-  /* position: fixed;
-  left: 60%; */
   max-width: 39%;
+  width: 30%;
   padding: 30px;
   background-color: #fff;
   border-radius: 10px;
@@ -105,6 +117,7 @@ aside div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 100%;
 }
 
 aside div img {
@@ -114,6 +127,36 @@ aside div img {
 }
 
 aside div p {
+  text-align: center;
   font-size: 14px;
   color: hsl(12, 20%, 44%);
+}
+
+.cart-item-content {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.cart-item-remove {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.cart-total {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-total h4 {
+  font-weight: 500;
+  font-size: 12px;
+  color: hsl(12, 20%, 44%);
+}
+
+.cart-total h4 span {
+  color: #000;
+  font-size: 16px;
+  font-weight: 900;
 }
