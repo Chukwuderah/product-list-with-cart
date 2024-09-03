@@ -43,7 +43,7 @@
             </div>
             <div>
               <span class="name">Waffle</span>
-              <p>Waffle with Berries</p>
+              <p class="product-description">Waffle with Berries</p>
               <span class="price">$6.50</span>
             </div>
           </div>
@@ -73,7 +73,7 @@
             </div>
             <div>
               <span class="name">Crème Brûlée</span>
-              <p>Vanilla Bean Crème Brûlée</p>
+              <p class="product-description">Vanilla Bean Crème Brûlée</p>
               <span class="price">$7.00</span>
             </div>
           </div>
@@ -103,7 +103,7 @@
             </div>
             <div>
               <span class="name">Macaron</span>
-              <p>Macaron Mix of Five</p>
+              <p class="product-description">Macaron Mix of Five</p>
               <span class="price">$8.00</span>
             </div>
           </div>
@@ -133,7 +133,7 @@
             </div>
             <div>
               <span class="name">Tiramisu</span>
-              <p>Classic Tiramisu</p>
+              <p class="product-description">Classic Tiramisu</p>
               <span class="price">$5.50</span>
             </div>
           </div>
@@ -163,7 +163,7 @@
             </div>
             <div>
               <span class="name">Baklava</span>
-              <p>Pistachio Baklava</p>
+              <p class="product-description">Pistachio Baklava</p>
               <span class="price">$4.00</span>
             </div>
           </div>
@@ -193,7 +193,7 @@
             </div>
             <div>
               <span class="name">Pie</span>
-              <p>Lemon Meringue Pie</p>
+              <p class="product-description">Lemon Meringue Pie</p>
               <span class="price">$5.00</span>
             </div>
           </div>
@@ -220,7 +220,7 @@
             </div>
             <div>
               <span class="name">Cake</span>
-              <p>Red Velvet Cake</p>
+              <p class="product-description">Red Velvet Cake</p>
               <span class="price">$4.50</span>
             </div>
           </div>
@@ -250,7 +250,7 @@
             </div>
             <div>
               <span class="name">Brownie</span>
-              <p>Salted Caramel Brownie</p>
+              <p class="product-description">Salted Caramel Brownie</p>
               <span class="price">$4.50</span>
             </div>
           </div>
@@ -280,7 +280,7 @@
             </div>
             <div>
               <span class="name">Panna Cotta</span>
-              <p>Vanilla Panna Cotta</p>
+              <p class="product-description">Vanilla Panna Cotta</p>
               <span class="price">$6.50</span>
             </div>
           </div>
@@ -288,19 +288,40 @@
       </div>
       <aside>
         <h3>Your Cart(0)</h3>
-        <div>
+        <div class="cart-items">
           <img
             src="./Icons/illustration-empty-cart.jpg"
             alt="illustration-empty-cart"
+            class="empty-cart"
           />
           <p>Your added items will appear here</p>
         </div>
         <div class="cart-total" style="display: none">
           <h4>
-            Order Total: <span>$</span> <span class="total-price">0.00</span>
+            Order Total:
+            <span><span>$</span> <span class="total-price">0.00</span></span>
           </h4>
+          <div id="carbon-neutral">
+            <img
+              src="./Icons/icon-carbon-neutral.jpg"
+              alt="icon-carbon-neutral"
+              class="carbon-neutral"
+            />
+            <span>This is a <b>carbon-neutral</b> delivery</span>
+          </div>
         </div>
+        <button class="confirm-order" style="display: none">
+          Confirm Order
+        </button>
       </aside>
+    </div>
+    <!-- Confirm Order Pop-up -->
+    <div class="order-confirmation" style="display: none">
+      <img src="./Icons/icon-order-confirmed.jpg" alt="icon-order-confirmed" />
+      <h3>Order Confirmed</h3>
+      <p class="enjoy">We hope you enjoy your food!</p>
+      <div class="order-summary"></div>
+      <button class="start-new-order">Start New Order</button>
     </div>
     <script src="./script.js"></script>
   </body>
