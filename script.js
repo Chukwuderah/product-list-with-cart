@@ -120,9 +120,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="cart-item-content">
           <div>
             <p><strong>${cartItems[productName].description}</strong></p>
-            <p>${cartItems[productName].quantity}x @$${cartItems[
-        productName
-      ].price.toFixed(2)} $${(
+            <p><span class="price">${
+              cartItems[productName].quantity
+            }x</span> @$${cartItems[productName].price.toFixed(2)} $${(
         cartItems[productName].price * cartItems[productName].quantity
       ).toFixed(2)}</p>
           </div>
