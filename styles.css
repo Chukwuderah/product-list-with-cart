@@ -24,7 +24,7 @@ div.desserts {
   position: absolute;
   /* right: auto; */
   float: left;
-  max-width: 61%;
+  max-width: 55%;
 }
 
 div.image {
@@ -40,8 +40,8 @@ div.image div.img-btn {
 }
 
 div.image img {
-  max-width: 240px;
-  max-height: 250px;
+  max-width: 200px;
+  max-height: 220px;
   border-radius: 10px;
 }
 
@@ -100,10 +100,10 @@ span.price {
 }
 
 aside {
+  position: relative;
   float: right;
-  /* max-width: 39%; */
-  /* width: 39%; */
-  max-width: 39%;
+  max-width: 45%;
+  width: 32%;
   padding: 30px;
   background-color: #fff;
   border-radius: 10px;
@@ -144,7 +144,6 @@ aside div p {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-height: auto;
   background-color: hsl(20, 50%, 98%);
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -164,7 +163,6 @@ aside div p {
 }
 
 .cart-total {
-  /* border-top: 1px solid #ccc; */
   margin-top: 20px;
   padding-top: 10px;
   display: flex;
