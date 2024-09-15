@@ -8,7 +8,8 @@ body {
   font-family: "Red Hat Text", sans-serif;
   font-size: 16px;
   background-color: beige;
-  max-height: 100vh;
+  min-height: 100vh;
+  line-height: 1.5em;
 }
 
 div.container {
@@ -22,7 +23,6 @@ h1 {
 
 div.desserts {
   position: absolute;
-  /* right: auto; */
   float: left;
   max-width: 55%;
 }
@@ -93,6 +93,7 @@ span.price {
 
 p {
   font-size: 18px;
+  text-wrap: nowrap;
 }
 
 span.price {
@@ -100,10 +101,9 @@ span.price {
 }
 
 aside {
-  position: relative;
   float: right;
   max-width: 45%;
-  width: 32%;
+  min-width: 32%;
   padding: 30px;
   background-color: #fff;
   border-radius: 10px;
@@ -129,8 +129,10 @@ aside div img.empty-cart {
 
 aside div p {
   text-align: center;
-  font-size: 14px;
+  /* font-size: 14px; */
+  font-size: 0.8em;
   color: hsl(12, 20%, 44%);
+  text-wrap: nowrap;
 }
 
 .cart-item-content {
@@ -156,7 +158,6 @@ aside div p {
 }
 
 .cart-item img.cart-item-remove {
-  margin-left: 10px;
   cursor: pointer;
   max-width: 20px;
   max-height: 20px;
@@ -174,13 +175,13 @@ aside div p {
   flex-direction: row;
   justify-content: space-between;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 0.8rem;
   color: hsl(12, 20%, 44%);
 }
 
 .cart-total h4 span {
   color: #000;
-  font-size: 16px;
+  font-size: 0.8rem;
   font-weight: 900;
 }
 
@@ -335,6 +336,10 @@ div#carbon-neutral span {
     width: 35%;
   }
 
+  aside p {
+    font-size: 0.2em;
+  }
+
   div#carbon-neutral {
     max-height: 30px;
     margin: 15px auto;
@@ -346,39 +351,120 @@ div#carbon-neutral span {
   }
 }
 
-@media (max-width: 1022px) and (min-width: px) {
-}
-
-@media screen and (max-width: 736px) {
-  div.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 500px;
+@media (max-width: 1234px) and (min-width: 1025px) {
+  div.desserts {
+    max-width: 50%;
   }
 
-  div.desserts {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    min-width: 100%;
+  div.image div.img-btn {
+    max-width: 200px;
   }
 
   div.image img {
-    max-width: 300px;
-    max-height: 250px;
+    max-width: 200px;
+    max-height: 220px;
+    /* border: 2px solid red; */
+  }
+
+  div.image button {
+    padding: 11px 20px;
+    font-size: 15px;
   }
 
   aside {
-    position: absolute;
-    /* top: 2200px; */
-    /* top: 520vw; */
-    min-width: 75%;
-    /* display: flex;
-    align-items: flex-end;
-    z-index: 100000; */
+    max-width: 50%;
+    min-width: 45%;
+  }
+
+  aside p {
+    font-size: 0.2em;
+  }
+
+  div#carbon-neutral {
+    max-height: 30px;
+    margin: 15px auto;
+    padding: 25px 20px;
+  }
+
+  div#carbon-neutral span {
+    font-size: 0.7em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  div.container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  div.desserts {
+    min-width: 80%;
+  }
+
+  div.image img {
+    max-width: 370px;
+    max-height: 310px;
+  }
+
+  aside {
+    float: unset;
+    align-self: baseline;
+    position: sticky;
+    top: 30%;
+    min-width: 80%;
+    max-width: 90%;
+  }
+
+  aside div p {
+    font-size: 1em;
+  }
+
+  aside div img.empty-cart {
+    max-width: 30vw;
+  }
+
+  .cart-item-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    line-height: 2em;
+    word-spacing: 5px;
+    font-size: 1.7em;
+  }
+
+  .cart-item img.cart-item-remove {
+    max-width: 35px;
+    max-height: 35px;
+  }
+
+  .cart-total h4,
+  .cart-total h4 span {
+    font-size: 1.25em;
+    padding: 0 20px;
+  }
+
+  .cart-total h4 span {
+    padding: 0;
+  }
+
+  div#carbon-neutral {
+    justify-content: space-around;
+  }
+
+  div#carbon-neutral img.carbon-neutral {
+    max-width: 35px;
+    max-height: 35px;
+  }
+
+  div#carbon-neutral span {
+    font-size: 1.5em;
+  }
+
+  .confirm-order,
+  .start-new-order {
+    font-size: 1.3em;
   }
 }
 
