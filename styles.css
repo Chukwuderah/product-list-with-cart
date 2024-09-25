@@ -233,7 +233,7 @@ div#carbon-neutral span {
   z-index: 1000;
   width: 50%;
   max-height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   display: flex;
   justify-content: space-between;
 }
@@ -241,9 +241,11 @@ div#carbon-neutral span {
 .order-confirmation img {
   max-width: 50px;
   max-height: 50px;
+  transform: translateY(15px);
 }
 
 .order-confirmation h3 {
+  margin: 12px 0;
   font-size: 40px;
 }
 
@@ -299,7 +301,8 @@ div#carbon-neutral span {
 }
 
 .complete-total {
-  width: 35vw;
+  min-width: 35vw;
+  max-width: 40vw;
   display: flex;
   justify-content: space-between;
   padding: 15px 0;
@@ -394,9 +397,11 @@ div#carbon-neutral span {
 @media screen and (max-width: 1024px) {
   div.container {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 150px;
   }
 
   div.desserts {
@@ -409,12 +414,18 @@ div#carbon-neutral span {
   }
 
   aside {
-    float: unset;
-    align-self: baseline;
-    position: sticky;
-    top: 30%;
-    min-width: 80%;
-    max-width: 90%;
+    /* display: flex;
+    flex-direction: column-reverse; */
+    /* position: sticky; */
+    margin-top: 20px;
+    left: 0;
+    bottom: 0;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   }
 
   aside div p {
@@ -467,169 +478,3 @@ div#carbon-neutral span {
     font-size: 1.3em;
   }
 }
-
-/* @media (max-width: 923px) and (min-width: 880px) {
-  div.desserts {
-    max-width: 50%;
-  }
-
-  div.image div.img-btn {
-    max-width: 200px;
-  }
-
-  div.image img {
-    max-width: 190px;
-    max-height: 220px;
-  }
-
-  div.image button {
-    padding: 11px 18px;
-    font-size: 1em;
-  }
-
-  p.product-description {
-    font-size: 16px;
-  }
-
-  aside {
-    max-width: 50%;
-    width: 40%;
-  }
-
-  div#carbon-neutral {
-    max-height: 30px;
-    margin: 15px auto;
-    padding: 25px 20px;
-  }
-
-  div#carbon-neutral span {
-    font-size: 0.7em;
-  }
-}
-
-@media (max-width: 881px) and (min-width: 600px) {
-  div.desserts {
-    max-width: 60%;
-  }
-
-  div.image div.img-btn {
-    max-width: 200px;
-  }
-
-  div.image img {
-    max-width: 190px;
-    max-height: 220px;
-  }
-
-  div.image button {
-    padding: 11px 18px;
-    font-size: 1em;
-  }
-
-  p.product-description {
-    font-size: 16px;
-  }
-
-  aside {
-    max-width: 40%;
-    width: 30%;
-  }
-
-  div#carbon-neutral {
-    max-height: 30px;
-    margin: 15px auto;
-    padding: 25px 20px;
-  }
-
-  div#carbon-neutral span {
-    font-size: 0.7em;
-  }
-}
-
-@media (max-width: 599px) and (min-width: 375px) {
-  div.desserts {
-    max-width: 55%;
-  }
-
-  div.image div.img-btn {
-    max-width: 200px;
-  }
-
-  div.image img {
-    max-width: 220px;
-    max-height: 220px;
-  }
-
-  div.image button {
-    padding: 11px 22px;
-    font-size: 1em;
-  }
-
-  p.product-description {
-    font-size: 16px;
-  }
-
-  aside {
-    max-width: 45%;
-    width: 35%;
-  }
-
-  div#carbon-neutral {
-    max-height: 30px;
-    margin: 15px auto;
-    padding: 25px 20px;
-  }
-
-  div#carbon-neutral span {
-    font-size: 0.7em;
-  }
-}
-
-@media (max-width: 374px) {
-  div.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: space-between;
-  }
-
-  div.desserts {
-    max-width: 100%;
-  }
-
-  div.image div.img-btn {
-    max-width: 200px;
-  }
-
-  div.image img {
-    max-width: 250px;
-    max-height: 220px;
-  }
-
-  div.image button {
-    padding: 11px 18px;
-    font-size: 1em;
-  }
-
-  p.product-description {
-    font-size: 16px;
-  }
-
-  aside {
-    max-width: 100%;
-    width: 30%;
-    left: 0;
-    right: 0;
-    top: -50%;
-  }
-
-  div#carbon-neutral {
-    max-height: 30px;
-    margin: 15px auto;
-    padding: 25px 20px;
-  }
-
-  div#carbon-neutral span {
-    font-size: 0.7em;
-  }
-} */

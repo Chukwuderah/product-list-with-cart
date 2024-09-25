@@ -131,6 +131,9 @@ document.addEventListener("DOMContentLoaded", function () {
       `;
       cartContainer.appendChild(cartItem);
     }
+    // else {
+    //   updateCart(productName); // Update the existing item if it's already in the cart
+    // }
 
     updateCart(productName);
 
@@ -149,11 +152,22 @@ document.addEventListener("DOMContentLoaded", function () {
       `div[data-product-name="${productName}"]`
     );
 
-    cartItem.querySelector(".cart-item-content p:last-child").textContent = `${
-      cartItems[productName].quantity
-    }x @$${cartItems[productName].price.toFixed(2)} $${(
-      cartItems[productName].price * cartItems[productName].quantity
-    ).toFixed(2)}`;
+    // cartItem.querySelector(".cart-item-content p:last-child").textContent = `${
+    //   cartItems[productName].quantity
+    // }x @$${cartItems[productName].price.toFixed(2)} $${(
+    //   cartItems[productName].price * cartItems[productName].quantity
+    // ).toFixed(2)}`;
+
+    if (cartItem) {
+      // Update the cart item quantity and price
+      cartItem.querySelector(".cart-item-content p:last-child").innerHTML = `
+        <span class="quantity">${
+          cartItems[productName].quantity
+        }x</span> @ $${cartItems[productName].price.toFixed(2)} $${(
+        cartItems[productName].price * cartItems[productName].quantity
+      ).toFixed(2)}
+      `;
+    }
   }
 
   function removeFromCart(productName) {
