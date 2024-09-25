@@ -22,7 +22,8 @@ h1 {
 }
 
 div.desserts {
-  position: absolute;
+  /* problematic line below. test at screen width 550px */
+  /* position: absolute; */
   float: left;
   max-width: 55%;
 }
