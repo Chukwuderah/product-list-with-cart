@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <img src="${cartItems[item].image}" alt="${
         cartItems[item].name
       }" style="max-width: 50px; margin-right: 15px;">
-          <p style="margin: 0; font-size: 1em;">${
+          <p style="margin: 0; font-size: 1rem;" class="product-description">${
             cartItems[item].description
           }</p>
         </div>
@@ -219,12 +219,12 @@ document.addEventListener("DOMContentLoaded", function () {
           cartItems[item].quantity
         }x</span> <span class="total">@ $${cartItems[item].price.toFixed(
         2
-      )}</span></span><span style="margin-left: 10px; transform: translateY(-15px)">$${(
+      )}</span></span><span style="margin-left: 10px; font-size: 1rem; transform: translateY(-15px)">$${(
         cartItems[item].price * cartItems[item].quantity
       ).toFixed(2)}</span></p>
       </div>`;
     }
-    summaryContent += `<p class="complete-total"><span class="total">Order Total:</span> <span>$${totalPriceElement.textContent}</span></p>`;
+    summaryContent += `<p class="complete-total"><span class="total">Order Total:</span> <span style="font-size: 1rem;">$${totalPriceElement.textContent}</span></p>`;
     orderSummary.innerHTML = summaryContent;
     orderConfirmation.style.display = "block";
   });
