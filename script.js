@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let cartItems = {}; // Store items in the cart
 
+  // Update cart count and display cart title
   function updateCartCount() {
     const itemCount = Object.keys(cartItems).reduce(
       (sum, itemName) => sum + cartItems[itemName].quantity,
@@ -28,6 +29,68 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Update the total price of items in the cart
+  function updateCartTotal() {
+    const total = Object.keys(cartItems).reduce(
+      (sum, itemName) =>
+        sum + cartItems[itemName].price * cartItems[itemName].quantity,
+      0
+    );
+    totalPriceElement.textContent = total.toFixed(2);
+  }
+
+  // Add or update an item in the cart
+  function addToCart(productName) {
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+    cartItem.setAttribute("data-product-name", productName);
+
+    cartItem.innerHTML = `
+      <div class="cart-item-content">
+        <div>
+          <p><strong>${cartItems[productName].description}</strong></p>
+          <p><span class="quantity">${
+            cartItems[productName].quantity
+          }x</span> @$${cartItems[productName].price.toFixed(2)} $${(
+      cartItems[productName].price * cartItems[productName].quantity
+    ).toFixed(2)}</p>
+        </div>
+        <img src="./Icons/icon-remove-item.jpg" class="cart-item-remove" alt="Remove item" style="margin-left: 15px;">
+      </div>
+    `;
+
+    cartContainer.appendChild(cartItem);
+
+    // Remove the item from the cart when clicking the remove button
+    cartItem
+      .querySelector(".cart-item-remove")
+      .addEventListener("click", () => {
+        delete cartItems[productName];
+        cartItem.remove();
+        updateCartTotal();
+        updateCartCount();
+        resetProductControls(productName);
+      });
+  }
+
+  // Update existing cart item when quantity changes
+  function updateCart(productName) {
+    const cartItem = cartContainer.querySelector(
+      `div[data-product-name="${productName}"]`
+    );
+
+    if (cartItem) {
+      // Update the cart item quantity and price
+      cartItem.querySelector(".cart-item-content p:last-child").innerHTML = `
+        <span class="quantity">${
+          cartItems[productName].quantity
+        }x</span> @ $${cartItems[productName].price.toFixed(2)} $${(
+        cartItems[productName].price * cartItems[productName].quantity
+      ).toFixed(2)}
+      `;
+    }
+  }
+
   addToCartButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const productElement = button.closest("div").nextElementSibling;
@@ -42,10 +105,12 @@ document.addEventListener("DOMContentLoaded", function () {
         .closest("div.img-btn")
         .querySelector("img").src;
 
+      // Hide "Add to Cart" button and show quantity controls
       button.style.display = "none";
       const quantityControls = button.nextElementSibling;
       quantityControls.style.display = "flex";
 
+      // Start quantity at 1 every time an item is added
       if (!cartItems[productName]) {
         cartItems[productName] = {
           name: productName,
@@ -60,26 +125,31 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCart(productName);
       }
 
-      updateCartTotal();
-      updateCartCount();
-
-      const imgElement = cartContainer.querySelector("img");
+      // Hide the empty cart image and message when an item is added
+      const imgElement = cartContainer.querySelector("img.empty-cart");
       const pElement = cartContainer.querySelector("p");
 
       if (imgElement) {
-        imgElement.remove();
+        imgElement.style.display = "none";
       }
 
       if (pElement) {
-        pElement.remove();
+        pElement.style.display = "none";
       }
+
+      updateCartTotal();
+      updateCartCount();
 
       cartTotalElement.style.display = "block";
       confirmOrderButton.style.display = "block";
 
+      // Handle increment and decrement buttons
       const incrementButton = quantityControls.querySelector(".increment");
       const decrementButton = quantityControls.querySelector(".decrement");
       const quantityDisplay = quantityControls.querySelector(".quantity");
+
+      // Set initial quantity display to 1
+      quantityDisplay.textContent = "1";
 
       incrementButton.addEventListener("click", function () {
         cartItems[productName].quantity += 1;
@@ -106,70 +176,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  function addToCart(productName) {
-    let cartItem = cartContainer.querySelector(
-      `div[data-product-name="${productName}"]`
-    );
-
-    if (!cartItem) {
-      cartItem = document.createElement("div");
-      cartItem.classList.add("cart-item");
-      cartItem.setAttribute("data-product-name", productName);
-
-      cartItem.innerHTML = `
-        <div class="cart-item-content">
-          <div>
-            <p><strong>${cartItems[productName].description}</strong></p>
-            <p><span class="price">${
-              cartItems[productName].quantity
-            }x</span> @$${cartItems[productName].price.toFixed(2)} $${(
-        cartItems[productName].price * cartItems[productName].quantity
-      ).toFixed(2)}</p>
-          </div>
-          <img src="./Icons/icon-remove-item.jpg" class="cart-item-remove" alt="Remove item" style="margin-left: 15px;">
-        </div>
-      `;
-      cartContainer.appendChild(cartItem);
-    }
-    // else {
-    //   updateCart(productName); // Update the existing item if it's already in the cart
-    // }
-
-    updateCart(productName);
-
-    const removeButton = cartItem.querySelector(".cart-item-remove");
-    removeButton.addEventListener("click", function () {
-      delete cartItems[productName];
-      cartItem.remove();
-      updateCartTotal();
-      updateCartCount();
-      resetProductControls(productName);
-    });
-  }
-
-  function updateCart(productName) {
-    const cartItem = cartContainer.querySelector(
-      `div[data-product-name="${productName}"]`
-    );
-
-    // cartItem.querySelector(".cart-item-content p:last-child").textContent = `${
-    //   cartItems[productName].quantity
-    // }x @$${cartItems[productName].price.toFixed(2)} $${(
-    //   cartItems[productName].price * cartItems[productName].quantity
-    // ).toFixed(2)}`;
-
-    if (cartItem) {
-      // Update the cart item quantity and price
-      cartItem.querySelector(".cart-item-content p:last-child").innerHTML = `
-        <span class="quantity">${
-          cartItems[productName].quantity
-        }x</span> @ $${cartItems[productName].price.toFixed(2)} $${(
-        cartItems[productName].price * cartItems[productName].quantity
-      ).toFixed(2)}
-      `;
-    }
-  }
-
   function removeFromCart(productName) {
     const cartItem = cartContainer.querySelector(
       `div[data-product-name="${productName}"]`
@@ -177,15 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (cartItem) {
       cartItem.remove();
     }
-  }
-
-  function updateCartTotal() {
-    const total = Object.keys(cartItems).reduce(
-      (sum, itemName) =>
-        sum + cartItems[itemName].price * cartItems[itemName].quantity,
-      0
-    );
-    totalPriceElement.textContent = total.toFixed(2);
   }
 
   function resetProductControls(productName) {
@@ -202,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Order confirmation and reset functionality
   confirmOrderButton.addEventListener("click", function () {
     let summaryContent = "";
     for (let item in cartItems) {
@@ -232,21 +230,19 @@ document.addEventListener("DOMContentLoaded", function () {
   startNewOrderButton.addEventListener("click", function () {
     cartItems = {};
     cartContainer.innerHTML = `
-          <img src="./Icons/illustration-empty-cart.jpg" alt="illustration-empty-cart" class="empty-cart"/>
-          <p>Your added items will appear here</p>
-        `;
+      <img src="./Icons/illustration-empty-cart.jpg" alt="illustration-empty-cart" class="empty-cart"/>
+      <p>Your added items will appear here</p>
+    `;
     cartTitle.textContent = "Your Cart(0)";
     cartTotalElement.style.display = "none";
     confirmOrderButton.style.display = "none";
     orderConfirmation.style.display = "none";
-
-    const quantityControls = document.querySelectorAll(".quantity-controls");
-    quantityControls.forEach((controls) => {
-      controls.style.display = "none";
-    });
-
     addToCartButtons.forEach((button) => {
       button.style.display = "flex";
+      const quantityControls = button.nextElementSibling;
+      quantityControls.style.display = "none";
+      const quantityDisplay = quantityControls.querySelector(".quantity");
+      quantityDisplay.textContent = "1"; // Reset quantity to 1
     });
   });
 });
