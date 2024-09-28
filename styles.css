@@ -255,6 +255,19 @@ div#carbon-neutral span {
   font-weight: 400;
 }
 
+::-webkit-scrollbar {
+  max-width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 10px;
+}
+
 .order-summary {
   display: flex;
   flex-direction: column;
@@ -545,6 +558,10 @@ div#carbon-neutral span {
 }
 
 @media screen and (max-width: 704px) and (min-width: 481px) {
+  h1 {
+    text-align: center;
+  }
+
   div.image {
     display: flex;
     justify-content: center;
@@ -560,9 +577,18 @@ div#carbon-neutral span {
     padding: 13px 20%;
     transform: translate(25px, -30px);
   }
+  aside {
+    max-width: 90%;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  div.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   h1 {
     text-align: center;
   }
@@ -580,5 +606,9 @@ div#carbon-neutral span {
   .order-confirmation {
     width: 85%;
     overflow-y: auto;
+  }
+
+  aside {
+    max-width: 100%;
   }
 }
