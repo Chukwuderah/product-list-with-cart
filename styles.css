@@ -93,7 +93,7 @@ span.price {
 
 p {
   font-size: 1rem;
-  text-wrap: nowrap;
+  /* text-wrap: nowrap; */
 }
 
 span.price {
@@ -131,7 +131,6 @@ aside div p {
   text-align: center;
   font-size: 0.75rem;
   color: hsl(12, 20%, 44%);
-  text-wrap: nowrap;
 }
 
 .cart-item-content {
@@ -216,7 +215,7 @@ div#carbon-neutral span {
   text-align: center;
   background-color: hsl(14, 86%, 42%);
   margin: 0 auto;
-  padding: 15px 30%;
+  padding: 15px 20%;
   cursor: pointer;
 }
 
@@ -544,7 +543,7 @@ div#carbon-neutral span {
     margin-top: 20px;
     left: 0;
     bottom: 0;
-    min-width: 80%;
+    min-width: 70%;
     max-width: 100%;
     padding: 20px;
     z-index: 1;
@@ -587,11 +586,27 @@ div#carbon-neutral span {
   }
 
   aside {
+    min-width: 70%;
     max-width: 90%;
+  }
+
+  div#carbon-neutral {
+    justify-content: space-around;
+    padding: 25px 15px;
+  }
+
+  div#carbon-neutral img.carbon-neutral {
+    max-width: 20px;
+    max-height: 20px;
+  }
+
+  div#carbon-neutral span {
+    font-size: 0.7rem;
+    text-wrap: wrap;
   }
 }
 
-@media screen and (max-width: 480px) and (min-width: 320px) {
+@media screen and (max-width: 480px) {
   div.container {
     display: flex;
     flex-direction: column;
@@ -627,6 +642,7 @@ div#carbon-neutral span {
   }
 
   aside {
+    min-width: 100%;
     max-width: 100%;
   }
 
@@ -642,5 +658,6 @@ div#carbon-neutral span {
 
   div#carbon-neutral span {
     font-size: 0.7rem;
+    text-wrap: wrap;
   }
 }
