@@ -129,7 +129,7 @@ aside div img.empty-cart {
 
 aside div p {
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: hsl(12, 20%, 44%);
   text-wrap: nowrap;
 }
@@ -516,7 +516,7 @@ div#carbon-neutral span {
   }
 }
 
-@media screen and (max-width: 744px) and (min-width: 320px) {
+@media screen and (max-width: 744px) and (min-width: 704px) {
   div.container {
     display: flex;
     flex-direction: column;
@@ -557,7 +557,49 @@ div#carbon-neutral span {
   }
 }
 
-@media screen and (max-width: 704px) and (min-width: 481px) {
+@media screen and (max-width: 703px) and (min-width: 481px) {
+  div.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div.desserts {
+    min-width: 80%;
+  }
+
+  div.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 35px;
+  }
+
+  div.image img {
+    max-width: 350px;
+    max-height: 250px;
+  }
+
+  div.image button {
+    padding: 13px 20%;
+    transform: translate(25px, -30px);
+  }
+
+  aside {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) and (min-width: 320px) {
+  div.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+  }
+
   h1 {
     text-align: center;
   }
@@ -566,50 +608,39 @@ div#carbon-neutral span {
     display: flex;
     justify-content: center;
     align-items: center;
+    column-gap: 35px;
   }
 
   div.image img {
-    max-width: 350px;
-    max-height: 250px;
+    max-width: 250px;
+    max-height: 220px;
   }
 
   div.image button {
-    padding: 13px 20%;
-    transform: translate(25px, -30px);
-  }
-  aside {
-    max-width: 90%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  div.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0%;
-  }
-
-  h1 {
-    text-align: center;
-  }
-
-  div.image img {
-    max-width: 350px;
-    max-height: 250px;
-  }
-
-  div.image button {
-    padding: 13px 20%;
-    transform: translate(25px, -30px);
+    padding: 13px 17%;
+    transform: translate(18px, -30px);
   }
 
   .order-confirmation {
-    width: 85%;
+    width: 95%;
     overflow-y: auto;
   }
 
   aside {
     max-width: 100%;
+  }
+
+  div#carbon-neutral {
+    justify-content: space-around;
+    padding: 25px 15px;
+  }
+
+  div#carbon-neutral img.carbon-neutral {
+    max-width: 20px;
+    max-height: 20px;
+  }
+
+  div#carbon-neutral span {
+    font-size: 0.7rem;
   }
 }
